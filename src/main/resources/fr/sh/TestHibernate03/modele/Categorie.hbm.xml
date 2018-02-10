@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+
+	<class name="fr.sh.TestHibernate03.modele.Categorie" table="CATEGORIE">
+		<cache usage="read-write" />
+		<id name="id" column="id">
+			<generator class="increment" />
+		</id>
+		
+		<property name="nom" />
+		<property name="libelle" />
+
+		<!-- <set name="produits" lazy="false">
+			<key column="CATEGORIE_ID" />
+			<one-to-many class="ventes.Produit" />
+		</set>-->
+	</class>
+
+</hibernate-mapping>
