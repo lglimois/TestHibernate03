@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.sh.TestHibernate03.modele.Categorie;
+import fr.sh.TestHibernate03.modele.Produit;
 import fr.sh.TestHibernate03.service.ServiceMetier;
 import fr.sh.TestHibernate03.service.SimpleObject;
 
@@ -35,5 +36,22 @@ public class ReadController {
 		ServiceMetier sm = new ServiceMetier();
 		Categorie c = sm.getOneCateg(1);
 		return c;
+	}
+
+	@RequestMapping("/getoneproduit")
+	public Produit getOneProduit()
+	{
+		
+		ServiceMetier sm = new ServiceMetier();
+		Produit p = sm.getOneProduit(1);
+		return p;
+	}
+
+	@RequestMapping("/getproduits")
+	public List<Produit> getProduits()
+	{
+		ServiceMetier sm = new ServiceMetier();
+		List<Produit> lst = sm.getLstProduits();
+		return lst;
 	}
 }

@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Produit implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected int id;
 	protected String nom;
 	protected String libelle;

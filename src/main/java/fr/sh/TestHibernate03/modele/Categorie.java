@@ -3,6 +3,10 @@ package fr.sh.TestHibernate03.modele;
 import java.io.Serializable;
 
 public class Categorie implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected int id;
 	protected String nom;
 	protected String libelle;
