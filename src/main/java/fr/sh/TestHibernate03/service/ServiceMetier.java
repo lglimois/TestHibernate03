@@ -1,5 +1,6 @@
 package fr.sh.TestHibernate03.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -7,6 +8,7 @@ import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import fr.sh.TestHibernate03.dto.ProduitDto;
 import fr.sh.TestHibernate03.modele.Categorie;
 import fr.sh.TestHibernate03.modele.Produit;
 import fr.sh.TestHibernate03.persistence.HibernatePersistence;
@@ -15,8 +17,10 @@ public class ServiceMetier {
 
 	private static Logger logger = LoggerFactory.getLogger(ServiceMetier.class);
 
-	public List<Produit> getLstProduits() {
+	public List<ProduitDto> getLstProduits() {
 		logger.info("getLstProduits debut ");
+		
+		List<ProduitDto> lstdto = new ArrayList<>();
 		
 		Session session = HibernatePersistence.getSessionFactory().openSession();
 		session.beginTransaction();
@@ -27,6 +31,8 @@ public class ServiceMetier {
 		List result = q.list();
 		// List result = session.createQuery( "from Product" ).list();
 		for (Produit produit : (List<Produit>) result) {
+			ProduitDto dto = new ProduitDto(produit.getNom(), produit.getLibelle(), "");
+			
 			logger.info("  produit" + produit);
 
 			logger.info("  ------------------------");
@@ -36,11 +42,13 @@ public class ServiceMetier {
 			logger.info("  ------------------------");
 
 			Categorie cur = produit.getCategorie();
+			dto.setCategnom(cur.getNom());
 			logger.info("    categorie du produit:" + cur);
+			lstdto.add(dto);
 		}
 		session.close();
 		logger.info("getLstProduits fin ");
-		return result;
+		return lstdto;
 	}
 
 	public List<Categorie> getLstCateg() {

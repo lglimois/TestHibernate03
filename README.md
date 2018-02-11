@@ -18,7 +18,10 @@ query list produit + categorie:
 
 	NOTE: si pas de cache: appel les requetes à chaque fois..
 
+Probleme si Lazy=proxy alors que l'on est dans le controller
+	--> correction: faire un DTO qui charge tout pour avoir en memoire apres que la session soit fermée.
+
+
 ## Points à tester:
-	Probleme si Lazy=proxy alors que l'on est dans le controller
 	
 Jprofiler

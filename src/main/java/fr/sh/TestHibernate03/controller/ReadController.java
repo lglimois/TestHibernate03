@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.sh.TestHibernate03.dto.ProduitDto;
 import fr.sh.TestHibernate03.modele.Categorie;
 import fr.sh.TestHibernate03.modele.Produit;
 import fr.sh.TestHibernate03.service.ServiceMetier;
@@ -48,10 +49,10 @@ public class ReadController {
 	}
 
 	@RequestMapping("/getproduits")
-	public List<Produit> getProduits()
+	public List<ProduitDto> getProduits()
 	{
 		ServiceMetier sm = new ServiceMetier();
-		List<Produit> lst = sm.getLstProduits();
+		List<ProduitDto> lst = sm.getLstProduits();
 		return lst;
 	}
 }

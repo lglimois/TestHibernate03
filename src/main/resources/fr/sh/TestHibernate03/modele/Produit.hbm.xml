@@ -15,7 +15,7 @@
 		 <many-to-one name="categorie" 
 			column="ID_CATEGORIE" 
 			class="fr.sh.TestHibernate03.modele.Categorie"
-			lazy="false" />
+			lazy="proxy" />
 	</class>
 
 </hibernate-mapping>
